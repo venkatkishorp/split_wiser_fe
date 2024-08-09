@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import { useRouter } from 'next/navigation'
+import { stringify } from "postcss";
 
 function Page() {
     const [email, setEmail] = React.useState('')
@@ -10,11 +11,27 @@ function Page() {
     const handleForm = async (event) => {
         event.preventDefault()
 
-        const { result, error } = await signUp(email, password);
+        // const { result, error } = await signUp(email, password);
 
-        if (error) {
-            return console.log(error)
-        }
+        result = await fetch('http://localhost:3000/firebase/auth/signup', {
+            method: 'POST',
+            body: JSON.stringify({
+                'email': email,
+                'password': password
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers":
+        "Content-Type, Authorization, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version",
+      "Access-Control-Max-Age": "86400",
+            },
+        })
+
+        // if (error) {
+        //     return console.log(error)
+        // }
 
         // else successful
         console.log(result)
