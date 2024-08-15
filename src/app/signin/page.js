@@ -2,6 +2,7 @@
 import React from "react";
 import { useRouter } from 'next/navigation';
 import { signIn } from "../api/firebase/auth/signin";
+import Alert from '@mui/material/Alert';
 
 function Page() {
     const [email, setEmail] = React.useState('');
@@ -35,7 +36,7 @@ function Page() {
 
     return (
         <>
-            { signinError ? <Alert severity="error">The email exists already!</Alert> : <></> }
+            { signinError ? <Alert severity="error">Check your email or password!</Alert> : <></> }
 
             <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm">
