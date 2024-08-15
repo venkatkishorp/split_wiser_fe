@@ -13,7 +13,8 @@ function Page() {
         const { result, error } = await signIn(email, password);
 
         if (error) {
-            return console.log(error)
+            console.log(error)
+            return error
         }
 
         // else successful

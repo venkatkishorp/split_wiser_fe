@@ -2,6 +2,8 @@
 import React from "react";
 import { useRouter } from 'next/navigation'
 import { stringify } from "postcss";
+// import { signUp } from 'api/firebase/auth/signup/page';
+import { signUp } from "../api/firebase/auth/signup/page";
 
 function Page() {
     const [email, setEmail] = React.useState('')
@@ -13,28 +15,23 @@ function Page() {
 
         // const { result, error } = await signUp(email, password);
 
-        result = await fetch('http://localhost:3000/firebase/auth/signup', {
+        result = await signUp({
             method: 'POST',
-            body: JSON.stringify({
+            body: {
                 'email': email,
                 'password': password
-            }),
+            },
             headers: {
                 'Content-Type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-      "Access-Control-Allow-Headers":
-        "Content-Type, Authorization, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version",
-      "Access-Control-Max-Age": "86400",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version", "Access-Control-Max-Age": "86400",
             },
         })
 
-        // if (error) {
-        //     return console.log(error)
-        // }
+        console.log(result);
 
-        // else successful
-        console.log(result)
+
         return router.push("/admin")
     }
     return (
