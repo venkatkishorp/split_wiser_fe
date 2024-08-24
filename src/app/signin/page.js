@@ -118,7 +118,7 @@ function Page() {
                             <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <Link href="/signup" variant="body2">
-                                    Don't have an account yet?
+                                    Do not have an account yet?
                                 </Link>
                             </Grid>
                         </Grid>
