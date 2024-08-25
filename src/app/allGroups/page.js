@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import {
 	Box,
 	AppBar,
@@ -13,11 +13,11 @@ import {
 	CardMedia,
 	CardActionArea,
 	CardContent,
-	Button,
+	IconButton,
 } from '@mui/material';
 import { db, auth } from '/src/firebase/config';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import { DeleteIcon } from '@mui/icons-material';
+import { faUsersLine } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
 
@@ -76,9 +76,9 @@ function Page() {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color="secondary">
 						Splitwiser
 					</Typography>
-					<Button variant="text" color="secondary" size="small" aria-label="delete" onClick={handleNewGroup}>
-						New group
-					</Button>
+					<IconButton variant="text" color="secondary" size="small" aria-label="delete" onClick={handleNewGroup}>
+						<FontAwesomeIcon icon={faUsersLine} />
+					</IconButton>
 				</Toolbar>
 			</AppBar >
 
