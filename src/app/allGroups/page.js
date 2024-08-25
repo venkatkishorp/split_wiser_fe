@@ -14,7 +14,6 @@ import {
 	CardActionArea,
 	CardContent,
 	Button,
-	IconButton,
 } from '@mui/material';
 import { db, auth } from '/src/firebase/config';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
@@ -72,16 +71,16 @@ function Page() {
 
 	return (
 		<>
-			<AppBar position="static" sx={{ backgroundColor: '#00a3b8d1', color: 'white' }}>
+			<AppBar position="static" sx={{ backgroundColor: '#00a3b8d1' }}>
 				<Toolbar>
-					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color="secondary">
 						Splitwiser
 					</Typography>
-					<IconButton aria-label="delete" onClick={handleNewGroup}>
+					<Button variant="text" color="secondary" size="small" aria-label="delete" onClick={handleNewGroup}>
 						New group
-					</IconButton>
+					</Button>
 				</Toolbar>
-			</AppBar>
+			</AppBar >
 
 			<Container>
 				<Typography component="div" sx={{ flexGrow: 1, marginY: 2 }} fontWeight={"bold"} color={"#009688"} fontSize={"smaller"}>

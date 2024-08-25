@@ -43,9 +43,9 @@ export default function Page() {
 
 	return (
 		<>
-			<AppBar position="static" sx={{ backgroundColor: '#00a3b8d1', color: 'white' }}>
+			<AppBar position="static" sx={{ backgroundColor: "#00a3b8d1" }}>
 				<Toolbar>
-					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color="secondary">
 						Create a group
 					</Typography>
 					<Button aria-label="Save" onClick={handleCreateGroup} sx={{ color: 'white' }}>
