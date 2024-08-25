@@ -1,7 +1,6 @@
 'use client'
 import React from "react";
 import { useRouter } from 'next/navigation'
-import { stringify } from "postcss";
 import { signUp } from "../api/firebase/auth/signup";
 import { userSetup } from "../api/userSetup";
 import Alert from '@mui/material/Alert';
@@ -15,7 +14,7 @@ import {
     Avatar,
     CssBaseline,
     Link
-  } from '@mui/material';
+} from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -50,7 +49,7 @@ function Page() {
             });
 
             if (addUser?.type === 'document') {
-                router.push("/admin");
+                router.push("/allGroups");
             }
             else {
                 router.push("/signin");
@@ -72,10 +71,10 @@ function Page() {
             }, 3500);
         }
     }
-    
+
     return (
         <>
-            { signupError && <Alert severity="error">{errorMessage}</Alert> }
+            {signupError && <Alert severity="error">{errorMessage}</Alert>}
 
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="xs">
@@ -86,10 +85,10 @@ function Page() {
                             flexDirection: 'column',
                             alignItems: 'center',
                         }}
-                        >
-                            <Typography variant="h2">
-                                Splitwiser
-                            </Typography>
+                    >
+                        <Typography variant="h4" fontWeight="bold" color={"#4db6ac"}>
+                            Splitwiser
+                        </Typography>
                     </Box>
                     <CssBaseline />
                     <Box
@@ -99,7 +98,7 @@ function Page() {
                             flexDirection: 'column',
                             alignItems: 'center',
                         }}
-                        >
+                    >
                         {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                             <LockOutlinedIcon />
                         </Avatar> */}
@@ -110,7 +109,7 @@ function Page() {
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <TextField
-                                        variant="outlined"
+                                        variant="standard"
                                         required
                                         fullWidth
                                         id="name"
@@ -118,11 +117,11 @@ function Page() {
                                         name="name"
                                         autoComplete="name"
                                         onChange={(e) => setName(e.target.value)}
-                                        />
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        variant="outlined"
+                                        variant="standard"
                                         required
                                         fullWidth
                                         id="email"
@@ -130,11 +129,11 @@ function Page() {
                                         name="email"
                                         autoComplete="email"
                                         onChange={(e) => setEmail(e.target.value)}
-                                        />
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        variant="outlined"
+                                        variant="standard"
                                         required
                                         fullWidth
                                         id="phone"
@@ -142,11 +141,11 @@ function Page() {
                                         name="phone"
                                         autoComplete="tel"
                                         onChange={(e) => setPhone(e.target.value)}
-                                        />
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        variant="outlined"
+                                        variant="standard"
                                         required
                                         fullWidth
                                         name="password"
@@ -155,7 +154,7 @@ function Page() {
                                         id="password"
                                         autoComplete="current-password"
                                         onChange={(e) => setPassword(e.target.value)}
-                                        />
+                                    />
                                 </Grid>
                             </Grid>
                             <Button
@@ -163,7 +162,7 @@ function Page() {
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
-                                >
+                            >
                                 Register
                             </Button>
                             <Grid container justifyContent="flex-end">

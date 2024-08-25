@@ -13,7 +13,7 @@ import {
     Avatar,
     CssBaseline,
     Link
-  } from '@mui/material';
+} from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -37,7 +37,7 @@ function Page() {
         });
 
         if (result?.operationType == "signIn") {
-            router.push("/admin");
+            router.push("/allGroups");
         }
         else {
             router.push("/signin");
@@ -51,7 +51,7 @@ function Page() {
 
     return (
         <>
-            { signinError && <Alert severity="error">Check your email or password!</Alert> }
+            {signinError && <Alert severity="error">Check your email or password!</Alert>}
 
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="xs">
@@ -62,10 +62,10 @@ function Page() {
                             flexDirection: 'column',
                             alignItems: 'center',
                         }}
-                        >
-                            <Typography variant="h2">
-                                Splitwiser
-                            </Typography>
+                    >
+                        <Typography variant="h2">
+                            Splitwiser
+                        </Typography>
                     </Box>
                     <CssBaseline />
                     <Box
@@ -75,7 +75,7 @@ function Page() {
                             flexDirection: 'column',
                             alignItems: 'center',
                         }}
-                        >
+                    >
                         {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                             <LockOutlinedIcon />
                         </Avatar> */}
@@ -84,7 +84,7 @@ function Page() {
                         </Typography>
                         <Box component="form" onSubmit={handleForm} sx={{ mt: 1 }}>
                             <TextField
-                                variant="outlined"
+                                variant="standard"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -94,9 +94,9 @@ function Page() {
                                 autoComplete="email"
                                 autoFocus
                                 onChange={(e) => setEmail(e.target.value)}
-                                />
+                            />
                             <TextField
-                                variant="outlined"
+                                variant="standard"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -106,22 +106,22 @@ function Page() {
                                 id="password"
                                 autoComplete="current-password"
                                 onChange={(e) => setEmail(e.target.value)}
-                                />
+                            />
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
-                                >
+                            >
                                 Sign In
                             </Button>
                             <Grid container justifyContent="flex-end">
-                            <Grid item>
-                                <Link href="/signup" variant="body2">
-                                    Do not have an account yet?
-                                </Link>
+                                <Grid item>
+                                    <Link href="/signup" variant="body2">
+                                        Do not have an account yet?
+                                    </Link>
+                                </Grid>
                             </Grid>
-                        </Grid>
                         </Box>
                     </Box>
                 </Container>
