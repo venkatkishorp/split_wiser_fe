@@ -15,6 +15,7 @@ import {
 	Link
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Cookies from 'js-cookie';
 
 
 function Page() {
@@ -24,7 +25,7 @@ function Page() {
 	const router = useRouter()
 
 	const handleForm = async (event) => {
-		event.preventDefault()
+		event.preventDefault();
 
 		const result = await signIn({
 			method: 'POST',
@@ -35,6 +36,7 @@ function Page() {
 		});
 
 		if (result?.operationType == "signIn") {
+			Cookies.set('userCookie', result?.user.uid);
 			router.push("/allGroups");
 		}
 		else {
@@ -99,7 +101,7 @@ function Page() {
 							type="password"
 							id="password"
 							autoComplete="current-password"
-							onChange={(e) => setEmail(e.target.value)}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<Button
 							type="submit"

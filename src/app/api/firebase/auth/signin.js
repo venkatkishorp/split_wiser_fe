@@ -4,12 +4,6 @@ import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 const auth = getAuth(firebase_app);
 
 async function signIn(req) {
-  // try {
-  //     result = await signInWithEmailAndPassword(auth, email, password);
-  // } catch (e) {
-  //     error = e;
-  // }
-
   let result = null,
     error = null;
 
@@ -21,7 +15,8 @@ async function signIn(req) {
       result = await signInWithEmailAndPassword(auth, email, password);
 
       return result;
-    } catch (e) {
+    } 
+    catch (e) {
       console.log('Error occured at signin: ', e);
 
       return {

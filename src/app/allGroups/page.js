@@ -14,12 +14,13 @@ import {
 	CardActionArea,
 	CardContent,
 	IconButton,
+	Button,
 } from '@mui/material';
 import { db, auth } from '/src/firebase/config';
 import { faUsersLine } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-
+import Cookies from 'js-cookie';
 
 function Page() {
 
@@ -68,6 +69,11 @@ function Page() {
 		router.push('/allGroups/createGroup');
 	}
 
+	const logoutUser = () => {
+		Cookies.remove('userCookie');
+		router.push('/signin');
+	}
+
 
 	return (
 		<>
@@ -79,6 +85,7 @@ function Page() {
 					<IconButton variant="text" color="secondary" size="small" aria-label="delete" onClick={handleNewGroup}>
 						<FontAwesomeIcon icon={faUsersLine} />
 					</IconButton>
+					<Button onClick={logoutUser}>Logout</Button>
 				</Toolbar>
 			</AppBar >
 
