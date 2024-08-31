@@ -15,8 +15,7 @@ import {
 	CssBaseline,
 	Link
 } from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-
+import Cookies from 'js-cookie';
 
 function Page() {
 	const [email, setEmail] = React.useState('');
@@ -47,6 +46,7 @@ function Page() {
 			});
 
 			if (addUser?.type === 'document') {
+				Cookies.set('userCookie', result?.user.uid);
 				router.push("/allGroups");
 			}
 			else {

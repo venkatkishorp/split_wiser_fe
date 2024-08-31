@@ -13,16 +13,15 @@ import {
   CardMedia,
   CardActionArea,
   CardContent,
-  IconButton,
+  IconButton
 } from '@mui/material';
 import { db, auth } from '/src/firebase/config';
 import { faUsersLine } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-
+import Cookies from 'js-cookie';
 
 function Page() {
-
   const [groups, setGroups] = useState([]);
   const router = useRouter()
 
