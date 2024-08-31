@@ -99,7 +99,7 @@ function Page() {
 							type="password"
 							id="password"
 							autoComplete="current-password"
-							onChange={(e) => setEmail(e.target.value)}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<Button
 							type="submit"
