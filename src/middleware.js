@@ -2,8 +2,10 @@ import { NextResponse } from "next/server";
 
 export default function middleware(req) {
     let user = req.cookies.get('userCookie');
-    let url = req.url;
     let { pathname } = req.nextUrl;
+    /**
+     * Keep adding the new routes into the protected routes list
+     */
     const protectedRoutes = ["/allGroups", 
                              "/createGroup", 
                              "/groupTrans", 
@@ -14,6 +16,9 @@ export default function middleware(req) {
                              "/groupTrans"];
 
     if (!user) {
+        /**
+         * The anonymous function in this if condition is checking through the protexted routes if the pathname exists in it or not
+         */
         if ((() => {
             for (let route in protectedRoutes) {
                 console.log('Route: ', pathname, route);
@@ -22,12 +27,10 @@ export default function middleware(req) {
                     return true;
                 }
             }
-    
-            console.log('\n\nRoute not found: ');
+
             return false;
         })()) {
-            console.log('Check passed');
-            return NextResponse.redirect('http://localhost:8080/signin');
+            return NextResponse.redirect(`${process.env.BASE_URL}/signin`);
         }
         else {
             return NextResponse.next();
