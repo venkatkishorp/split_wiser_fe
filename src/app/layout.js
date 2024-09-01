@@ -15,14 +15,6 @@ import '@fontsource/roboto/700.css';
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className="h-full bg-white">
-			{/*
-        <head /> will contain the components returned by the nearest parent
-            head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-        <head /> */}
-			{/* <head> */}
-			{/* <script src="https://cdn.tailwindcss.com"></script> */}
-			{/* <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> */}
-			{/* </head> */}
 			<body className="h-full w-full" style={{ margin: 0 }}>
 				<AuthContextProvider>
 					<ThemeRegistry options={{ key: 'mui-theme' }}>{children}</ThemeRegistry>
