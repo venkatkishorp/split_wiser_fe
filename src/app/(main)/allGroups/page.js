@@ -20,6 +20,9 @@ import { db, auth } from '/src/firebase/config';
 import { faUsersLine } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import { BottomNavbar } from '../components/bottomNav';
+import { Fab } from '@mui/material';
+// import AddIcon from '@mui/icons-material/Add';
 import Cookies from 'js-cookie';
 
 function Page() {
@@ -82,7 +85,7 @@ function Page() {
           </IconButton>
           <Button onClick={handleLogout}>Logout</Button>
         </Toolbar>
-      </AppBar >
+      </AppBar>
 
       <Container>
         <Typography component="div" sx={{ flexGrow: 1, marginY: 2 }} fontWeight={"bold"} color={"#009688"} fontSize={"smaller"}>
@@ -117,6 +120,18 @@ function Page() {
           ))}
         </Grid>
       </Container>
+			<Fab
+				color="primary"
+				aria-label="add"
+				sx={{
+					position: 'fixed',
+					bottom: 64,
+					right: 16,
+				}}>
+					Add Group
+				{/* <AddIcon /> */}
+    	</Fab>
+			{/* <BottomNavbar /> */}
     </>
   );
 }

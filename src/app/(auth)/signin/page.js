@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import { useRouter } from 'next/navigation';
-import { signIn } from "../api/firebase/auth/signin";
+import { signIn } from "../../api/firebase/auth/signin";
 import Alert from '@mui/material/Alert';
 import {
 	Container,
@@ -10,11 +10,9 @@ import {
 	Typography,
 	Grid,
 	Box,
-	Avatar,
 	CssBaseline,
 	Link
 } from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Cookies from 'js-cookie';
 
 
