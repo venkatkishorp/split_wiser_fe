@@ -1,8 +1,8 @@
 'use client'
 import React from "react";
 import { useRouter } from 'next/navigation'
-import { signUp } from "../api/firebase/auth/signup";
-import { userSetup } from "../api/userSetup";
+import { signUp } from "../../api/firebase/auth/signup";
+import { userSetup } from "../../api/userSetup";
 import Alert from '@mui/material/Alert';
 import {
 	Container,
